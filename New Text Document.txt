@@ -1,0 +1,1553 @@
+form :
+<!DOCTYPE html>
+<html>
+    <head><title>FORM!! FORM!! FORM!! </title></head>
+     <link rel="icon" type="image/png" href="favicon.png">
+<body>
+<form action="index.html">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" required><br> <!-- Add the required attribute to make the input mandatory -->
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" required><br>
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" required><br>
+  <label for="country">Country:</label><br>
+  <select id="country" name="country" required>
+    <option value="Bangladesh">Bangladesh</option>
+    <option value="India">India</option>
+    <option value="USA">USA</option>
+    <!-- Add more countries as needed -->
+  </select><br>
+  <label for="dob">Date of Birth:</label><br>
+  <input type="date" id="dob" name="dob" required><br>
+  <label for="gender">Gender:</label><br>
+  <input type="radio" id="male" name="gender" value="male" required>
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="gender" value="female" required>
+  <label for="female">Female</label><br><br>
+  <label for="bio">Bio:</label><br> <!-- Add a new input for bio -->
+  <textarea id="bio" name="bio" rows="4" cols="50" placeholder="Write something about yourself"></textarea><br> <!-- Use the textarea element to create a multi-line text input -->
+  <label for="hobby">Hobby:</label><br> <!-- Add a new input for hobby -->
+  <input type="text" id="hobby" name="hobby" list="hobby-list" placeholder="Choose or type a hobby"><br> <!-- Use the list attribute to link the input to a datalist element -->
+  <datalist id="hobby-list"> <!-- Use the datalist element to provide a list of predefined options for the input -->
+    <option value="Reading">
+    <option value="Writing">
+    <option value="Coding">
+    <option value="Gaming">
+    <option value="Cooking">
+    <!-- Add more options as needed -->
+  </datalist><br>
+  <label for="agree">I agree to the <del>no terms and conditions</del></label><br> <!-- Add a new input for agreement -->
+  <input type="checkbox" id="agree" name="agree" value="yes" required><br> <!-- Use the checkbox element to create a single option that the user must check to submit the form -->
+  <input type="submit" value="Submit" onclick="submitForm()"> <!-- Remove the alert function from the onclick attribute and call the submitForm function instead -->
+</form> 
+<script>
+   // This function generates a random string of letters and numbers
+  // Source: Stack Overflow
+  function stringGen (len) {
+    var text = "";
+    var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
+    for (var i = 0; i < len; i++)
+      text += charset.charAt (Math.floor (Math.random () * charset.length));
+    return text;
+  }
+
+  // This function generates a random number between min and max (both included)
+  // Source: W3Schools
+  function getRndInteger (min, max) {
+    return Math.floor (Math.random () * (max - min + 1) ) + min;
+  }
+
+  // This function validates the email input using a regular expression
+  // Source: SourceCodester
+  function validateEmail (email) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test (email);
+  }
+
+  // This function displays an alert message when the form is submitted
+  function submitForm () {
+    // Get the values from the input fields
+    var fname = document.getElementById ("fname").value;
+    var lname = document.getElementById ("lname").value;
+    var email = document.getElementById ("email").value;
+    var password = document.getElementById ("password").value;
+    var country = document.getElementById ("country").value;
+    var dob = document.getElementById ("dob").value;
+    var gender = document.querySelector ("input[name='gender']:checked").value;
+    var phone = document.getElementById ("phone").value;
+    var bio = document.getElementById ("bio").value;
+    var hobby = document.getElementById ("hobby").value;
+    var agree = document.getElementById ("agree").checked;
+
+    // Check if the email is valid
+    if (!validateEmail (email)) {
+      alert ("Invalid email address!");
+      return;
+    }
+
+    // Check if the user agreed to the terms and conditions
+    if (!agree) {
+      alert ("You must agree to the terms and conditions to submit the form!");
+      return;
+    }
+
+    // Generate a random code for the user
+    var code = stringGen (getRndInteger (5, 10));
+
+    // Display the alert message with the user's information and code
+    alert ("Thank you for submitting the form!\n" +
+           "Your name is " + fname + " " + lname + ".\n" +
+           "Your email is " + email + ".\n" +
+           "Your password is " + password + ".\n" +
+           "Your country is " + country + ".\n" +
+           "Your date of birth is " + dob + ".\n" +
+           "Your gender is " + gender + ".\n" +
+           "Your bio is " + bio + ".\n" +
+           "Your hobby is " + hobby + ".\n" +
+           "Your code is " + code + ".\n" +
+           "Please keep this code for future reference.");
+  }
+</script>
+</body>
+</html>
+
+index 1 : 
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+
+        <title>anikfun</title>
+
+        <!-- Load external CSS styles -->
+        <link rel="stylesheet" href="styles.css">
+        <link rel="icon" type="image/png" href="favicon.png">
+<style>
+    #clock {
+      font-family: Arial, sans-serif;
+      font-size: 48px;
+      color: black;
+      text-align: center;
+    }
+  </style>
+  <style>
+
+body {
+  background-image: linear-gradient(to right, blue, green, yellow);
+}
+</style>
+<style>
+.rainbow {
+  font-size: 36px;
+  font-family: Arial;
+  animation: rainbow 3s infinite;
+}
+
+@keyframes rainbow {
+  0% {color: red;}
+  17% {color: orange;}
+  34% {color: yellow;}
+  51% {color: green;}
+  68% {color: blue;}
+  85% {color: indigo;}
+  100% {color: violet;}
+}
+</style>
+ <style>
+        body {
+            background-color: #F0F8FF;
+        }
+
+        h1 {
+            color: #FF1493;
+            text-align: center;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+
+        p {
+            color: #0000FF;
+            font-size: 20px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            width: 200px;
+            height: 50px;
+            font-size: 25px;
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            background-color: #FFD700;
+            border: none;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+        }
+
+        button:active {
+            transform: scale(0.9);
+        }
+    </style>
+    <style>
+    h1 {
+      font-family: "Comic Sans MS", arial, sans-serif;
+      text-align: center;
+      animation: rainbow 5s infinite;
+    }
+
+    @keyframes rainbow {
+      0% {color: red;}
+      20% {color: orange;}
+      40% {color: yellow;}
+      60% {color: green;}
+      80% {color: blue;}
+      100% {color: purple;}
+    }
+
+    .disappear {
+     display: none;
+    }
+  </style>
+    </head>
+
+    <body>
+      <img src="title.png"> <h1 id="text" class="rainbow" id="form">world of random stuff for you
+      </h1>
+      <h1 id="text" class="rainbow" id="form">below this text is the current time right now</h1>
+      <div class="rainbow" id="clock"></div>
+      <script>
+        function updateTime() {
+      // Get the current date and time
+      let now = new Date();
+      // Format the hours, minutes, and seconds
+      let hours = now.getHours();
+      let minutes = now.getMinutes();
+      let seconds = now.getSeconds();
+      // Add leading zeros if needed
+      if (hours < 10) hours = "0" + hours;
+      if (minutes < 10) minutes = "0" + minutes;
+      if (seconds < 10) seconds = "0" + seconds;
+      // Display the time in the div element
+      document.getElementById("clock").innerHTML = hours + ":" + minutes + ":" + seconds;
+    }
+    // Update the time every second
+    setInterval(updateTime, 1000);
+      </script>
+      <button onclick="alert('You clicked me!')">Click me!</button>
+      <h1 >Calculator for you click that submit button below me </h1>
+<form action="index3.html">
+  <input type="submit">
+</form>
+ <h1>signup for you click that submit button below me </h1>
+<form action="form-html.html">
+  <input type="submit">
+</form>
+ <h1 id="text">learn html and css for you click that submit button below me </h1>
+<form action="hhtml.html">
+  <input type="submit">
+</form>
+<h1 id="text">snake game for you click that submit button below me </h1>
+<form action="snake.html">
+  <input type="submit">
+</form>
+<h1 id="text">shooter game for you click that submit button below me </h1>
+<form action="game.html">
+  <input type="submit">
+</form>
+<h1 id="text">alien shooter game for you click that submit button below me </h1>
+<form action="game-alien.html">
+  <input type="submit">
+</form>
+<h1 id="text">Obstacle game for you click that submit button below me </h1>
+<form action="game-obg.html">
+  <input type="submit">
+</form>
+<h1 id="text">zalgo/glitch text genaretor for you click that submit button below me </h1>
+<form action="g-z.html">
+  <input type="submit">
+</form>
+<a href="https://www.youtube.com/@p.f.b.">
+<button id="disappear">my youtube page </button>
+</a>
+<h1 id="text">author:anik 
+E-mail:morzinabegam0@gmail.com</h1>
+<div id="text" id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<a href="https://anik88python.w3spaces.com/secret.html"><button>magic!</button></a>
+  </body>
+  </html>
+
+index 2 :
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>anik web: Number Guessing Game hehhe</title>
+</head>
+<body>
+    <h1>Number Guessing Game</h1>
+    <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+    <div class="form">
+        <label for="guessField">Enter a guess: </label>
+        <input type="text" id="guessField" class="guessField">
+        <input type="submit" value="Submit guess" class="guessSubmit">
+    </div>
+    <div class="resultParas">
+        <p class="guesses"></p>
+        <p class="lastResult"></p>
+        <p class="lowOrHi"></p>
+    </div>
+    <script type="text/javascript">
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let guesses = document.querySelector('.guesses');
+        let lastResult = document.querySelector('.lastResult');
+        let lowOrHi = document.querySelector('.lowOrHi');
+        let guessSubmit = document.querySelector('.guessSubmit');
+        let guessField = document.querySelector('.guessField');
+        let guessCount = 1;
+        let resetButton;
+
+        function checkGuess() {
+            let userGuess = Number(guessField.value);
+            if (guessCount === 1) {
+                guesses.textContent = 'Previous guesses: ';
+            }
+            guesses.textContent += userGuess + ' ';
+            if (userGuess === randomNumber) {
+                lastResult.textContent = 'Congratulations! You got it right!';
+                lastResult.style.backgroundColor = 'green';
+                lowOrHi.textContent = '';
+                setGameOver();
+            } else if (guessCount === 10) {
+                lastResult.textContent = '!!!GAME OVER!!!';
+                setGameOver();
+            } else {
+                lastResult.textContent = 'Wrong!';
+                lastResult.style.backgroundColor = 'red';
+                if(userGuess < randomNumber) {
+                    lowOrHi.textContent = 'Last guess was too low!';
+                } else if(userGuess > randomNumber) {
+                    lowOrHi.textContent = 'Last guess was too high!';
+                }
+            }
+            guessCount++;
+            guessField.value = '';
+            guessField.focus();
+        }
+
+        guessSubmit.addEventListener('click', checkGuess);
+
+        function setGameOver() {
+            guessField.disabled = true;
+            guessSubmit.disabled = true;
+            resetButton = document.createElement('button');
+            resetButton.textContent = 'Start new game';
+            document.body.append(resetButton);
+            resetButton.addEventListener('click', resetGame);
+        }
+
+        function resetGame() {
+            guessCount = 1;
+            let resetParas = document.querySelectorAll('.resultParas p');
+            for(let i = 0 ; i < resetParas.length ; i++) {
+                resetParas[i].textContent = '';
+            }
+            resetButton.parentNode.removeChild(resetButton);
+            guessField.disabled = false;
+            guessSubmit.disabled = false;
+            guessField.value = '';
+            guessField.focus();
+            lastResult.style.backgroundColor = 'white';
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+        }
+    </script>
+    <h1>joke Generator for you click that submit button below me </h1>
+<form action="index4.html">
+  <input type="submit">
+</form>
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
+
+index 3 : 
+
+ <html>
+<head>
+    <title>anik</title>
+  <script>
+    function calculate() {
+      var num1 = parseFloat(document.getElementById("num1").value);
+      var num2 = parseFloat(document.getElementById("num2").value);
+      var op = document.getElementById("op").value;
+      var result = 0;
+      switch (op) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          result = num1 / num2;
+          break;
+      }
+      document.getElementById("result").innerHTML = result;
+    }
+  </script>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <input type="number" id="num1" placeholder="Enter first number">
+  <select id="op">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option>
+  </select>
+  <input type="number" id="num2" placeholder="Enter second number">
+  <button onclick="calculate()">=</button>
+  <p id="result"></p>
+  <h1> heres a simple number guessing game The game generates a random number between 1 and 100, and the player has to guess the number click that submit button below me </h1>
+<form action="index2.html">
+  <input type="submit">
+</form>
+
+<div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+index 4 : 
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>anik web : Joke Generator</h2>
+
+<button onclick="generateJoke()">Click me for a joke!</button>
+
+<p id="joke"></p>
+
+<script>
+var jokes = [
+    "Why don't scientists trust atoms? Because they make up everything!",
+    "Why did the scarecrow win an award? Because he was outstanding in his field!",
+    "Why don't some fish play piano? Because you can't tuna fish!",
+    "Why did the bicycle fall over? Because it was two-tired!"
+];
+
+function generateJoke() {
+    var randomIndex = Math.floor(Math.random() * jokes.length);
+    document.getElementById("joke").innerHTML = jokes[randomIndex];
+}
+</script>
+<h1>rhyme Generator for you click that submit button below me </h1>
+<form action="index5.html">
+  <input type="submit">
+</form>
+ <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+</html>
+
+index 5:
+
+ <!DOCTYPE html>
+<html>
+    <head><title>anik web : Rhyme Generator</title> <link rel="icon" type="image/png" href="favicon.png"></head>
+<body>
+    <h1>Rhyme Generator</h1>
+    <input type="text" id="word" placeholder="Enter a word">
+    <button onclick="generateRhyme()">Generate Rhyme</button>
+    <p id="rhyme"></p>
+
+    <script>
+        function generateRhyme() {
+            var word = document.getElementById('word').value;
+            var rhymes = ['cat', 'bat', 'rat', 'mat', 'hat']; // Add more words that rhyme
+            var rhyme = rhymes[Math.floor(Math.random() * rhymes.length)];
+            document.getElementById('rhyme').innerHTML = 'A word that rhymes with ' + word + ' is ' + rhyme + '.';
+        }
+    </script>
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+secret :
+
+ <!DOCTYPE html>
+<html>
+<head>
+<style>
+.disappear {
+  display: none;
+}
+</style>
+</head>
+<body>
+
+<h2>Click the button to make the text disappear:</h2>
+
+<button onclick="document.getElementById('disappear').classList.toggle('disappear')">Click me</button>
+
+<p id="disappear">This text will disappear when you click the button.</p>
+
+</body>
+</html>
+
+ snake :
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html quiz</title>
+</head>
+<body>
+  <!-- This is a simple HTML snake game created by Bing -->
+<h1>Snake Game</h1>
+<p>Use the arrow keys to move the snake and eat the apples. Don't hit the walls or your own tail!</p>
+<canvas id="canvas" width="400" height="400"></canvas>
+<script>
+  // Get the canvas element and its context
+  var canvas = document.getElementById("canvas");
+  var ctx = canvas.getContext("2d");
+  // Define the size of each grid cell
+  var gridSize = 20;
+  // Define the number of rows and columns
+  var rows = canvas.height / gridSize;
+  var cols = canvas.width / gridSize;
+  // Define the initial position and direction of the snake
+  var snakeX = 10;
+  var snakeY = 10;
+  var snakeDX = 1;
+  var snakeDY = 0;
+  // Define the initial position of the apple
+  var appleX = 15;
+  var appleY = 15;
+  // Define an array to store the snake's body parts
+  var snakeBody = [];
+  // Define the initial length of the snake
+  var snakeLength = 3;
+  // Define a variable to store the game state
+  var gameOver = false;
+  // Define a function to draw the game board
+  function drawBoard() {
+    // Fill the background with black color
+    ctx.fillStyle = "black";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    // Draw the apple with red color
+    ctx.fillStyle = "red";
+    ctx.fillRect(appleX * gridSize, appleY * gridSize, gridSize, gridSize);
+    // Draw the snake with green color
+    ctx.fillStyle = "green";
+    // Loop through the snake's body parts
+    for (var i = 0; i < snakeBody.length; i++) {
+      // Draw each body part
+      ctx.fillRect(snakeBody[i].x * gridSize, snakeBody[i].y * gridSize, gridSize, gridSize);
+      // Check if the snake has collided with itself
+      if (snakeBody[i].x == snakeX && snakeBody[i].y == snakeY) {
+        // Set the game state to over
+        gameOver = true;
+      }
+    }
+    // Add the current position of the snake's head to the body array
+    snakeBody.push({x: snakeX, y: snakeY});
+    // Remove the extra body parts if the snake is longer than its length
+    while (snakeBody.length > snakeLength) {
+      snakeBody.shift();
+    }
+  }
+  // Define a function to update the game logic
+  function updateGame() {
+    // Check if the game is over
+    if (gameOver) {
+      // Stop the game loop
+      clearInterval(gameLoop);
+      // Show an alert message
+      alert("Game Over!");
+      // Reload the page
+      location.reload();
+    }
+    // Move the snake by its velocity
+    snakeX += snakeDX;
+    snakeY += snakeDY;
+    // Wrap the snake's position on the edges of the board
+    if (snakeX < 0) {
+      snakeX = cols - 1;
+    }
+    if (snakeX > cols - 1) {
+      snakeX = 0;
+    }
+    if (snakeY < 0) {
+      snakeY = rows - 1;
+    }
+    if (snakeY > rows - 1) {
+      snakeY = 0;
+    }
+    // Check if the snake has eaten the apple
+    if (snakeX == appleX && snakeY == appleY) {
+      // Increase the snake's length
+      snakeLength++;
+      // Generate a new random position for the apple
+      appleX = Math.floor(Math.random() * cols);
+      appleY = Math.floor(Math.random() * rows);
+    }
+  }
+  // Define a function to handle keyboard input
+  function handleKey(e) {
+    // Change the snake's direction based on the pressed key
+    switch (e.keyCode) {
+      case 37: // Left arrow
+        if (snakeDX == 0) {
+          snakeDX = -1;
+          snakeDY = 0;
+        }
+        break;
+      case 38: // Up arrow
+        if (snakeDY == 0) {
+          snakeDX = 0;
+          snakeDY = -1;
+        }
+        break;
+      case 39: // Right arrow
+        if (snakeDX == 0) {
+          snakeDX = 1;
+          snakeDY = 0;
+        }
+        break;
+      case 40: // Down arrow
+        if (snakeDY == 0) {
+          snakeDX = 0;
+          snakeDY = 1;
+        }
+        break;
+    }
+  }
+  // Add a keydown event listener to the document
+  document.addEventListener("keydown", handleKey);
+  // Start the game loop with a 100ms interval
+  var gameLoop = setInterval(function() {
+    drawBoard();
+    updateGame();
+  }, 100);
+</script>
+<div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
+
+g z :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>a̹̬̹̦͖̹͉͌̐ͥ̽̿͋̇͗̊ͅn͙̘͎̯͕͉̝͎͂ͤi̬̘̮̤̝ͨͬ̑ͯ̓̊͗̔̄k̝͈̗͙͍̜̤̝̗͍̹ͭ̓̉ͧ̏ ͕̼̲̝̼̰̬ͣ̆ͯ̎͛̇̊́̄ŵ͔̝̥͓͍͗ͨ̈̔͆ͦ̄ͬͣͥe̪̪̤̣̭͉͙̮͉̙̓ͅb͚͚̯̫:̱̊ͫ̇̌ ̥z̟͑̊̐̎ͫ̊a͈͔̮͙͕l̑ͣͧͨͯg͈̣̿̊ͭͭͯ́̿̿͛̀o̠̮͈̥͈̖̬̻̍̄͌͂͆̄̎/̣̲̺̥̙͚̮̺̣̬̤͒̂ͩͯ͊ͩ͂ͭ̐ͭ̚gl̝̬̟̱̝͍͑ͫͯ͒̽̓ḭ̭͙̞͎̠̰͔̾̆̽̃ͮt̥̠̣͉c̮̺͎͚̮̘̮̟̭̼̬̉̀ͦ͊̎̚h͕͔̞̗ͩͪ̈́̇̚ ̖͓̻̖͙̄̇̍̌̾ͬ̐̅t̜̦̭͔̮̤̮̊̑̐ͯ͊͂ͧͣͫͧ̚ḙ̭̬̦̖̗̤͚͎ͫx͙̜̟̪̰̭̻̪͛ͦt̼̫͔̘̹̜̣͍̗̤̖ͥ ͑̅̿͊̋͒̚g͕ͬe͖͚̯̲̥̭̪͌̅͑͐ͧ̓n̯͂̋́̂̀ͥ͂͂̊͋ͪẹ̲͉ͯ̂̈́͑̑͗ͤ̉̾̓ͥr̞̬̲̬̖̲͓̟̥͍̰̽͒͑̀̓e͍̼̟̘ͣ̓̎͐͊ͬ͋͐͛ͧ̚t̅͋ͦ̎ͤ̇͆ͪȯ̮̐̅̀ͯͫ̇͋̋ͥr̙͍̬͔̺̜̭͚̜̎̓</title>
+    <style> 
+    .zalgo_td {
+			BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; FONT-SIZE: 32px; BORDER-LEFT: black 1px solid; WIDTH: 48px; BORDER-BOTTOM: black 1px solid; TEXT-ALIGN: center
+		}
+		.zalgo_ref_table {
+			BORDER-RIGHT: black 1px solid; BORDER-TOP: black 1px solid; BORDER-LEFT: black 1px solid; BORDER-BOTTOM: black 1px solid
+		}
+    </style>
+    <script>
+        var zalgo_up = [
+  '\u030d', /*     ̍     */ '\u030e', /*     ̎     */ '\u0304', /*     ̄     */ '\u0305', /*     ̅     */
+  '\u033f', /*     ̿     */ '\u0311', /*     ̑     */ '\u0306', /*     ̆     */ '\u0310', /*     ̐     */
+  '\u0352', /*     ͒     */ '\u0357', /*     ͗     */ '\u0351', /*     ͑     */ '\u0307', /*     ̇     */
+  '\u0308', /*     ̈     */ '\u030a', /*     ̊     */ '\u0342', /*     ͂     */ '\u0343', /*     ̓     */
+  '\u0344', /*     ̈́     */ '\u034a', /*     ͊     */ '\u034b', /*     ͋     */ '\u034c', /*     ͌     */
+  '\u0303', /*     ̃     */ '\u0302', /*     ̂     */ '\u030c', /*     ̌     */ '\u0350', /*     ͐     */
+  '\u0300', /*     ̀     */ '\u0301', /*     ́     */ '\u030b', /*     ̋     */ '\u030f', /*     ̏     */
+  '\u0312', /*     ̒     */ '\u0313', /*     ̓     */ '\u0314', /*     ̔     */ '\u033d', /*     ̽     */
+  '\u0309', /*     ̉     */ '\u0363', /*     ͣ     */ '\u0364', /*     ͤ     */ '\u0365', /*     ͥ     */
+  '\u0366', /*     ͦ     */ '\u0367', /*     ͧ     */ '\u0368', /*     ͨ     */ '\u0369', /*     ͩ     */
+  '\u036a', /*     ͪ     */ '\u036b', /*     ͫ     */ '\u036c', /*     ͬ     */ '\u036d', /*     ͭ     */
+  '\u036e', /*     ͮ     */ '\u036f', /*     ͯ     */ '\u033e', /*     ̾     */ '\u035b', /*     ͛     */
+  '\u0346', /*     ͆     */ '\u031a' /*     ̚     */
+];
+
+//those go DOWN
+var zalgo_down = [
+  '\u0316', /*     ̖     */ '\u0317', /*     ̗     */ '\u0318', /*     ̘     */ '\u0319', /*     ̙     */
+  '\u031c', /*     ̜     */ '\u031d', /*     ̝     */ '\u031e', /*     ̞     */ '\u031f', /*     ̟     */
+  '\u0320', /*     ̠     */ '\u0324', /*     ̤     */ '\u0325', /*     ̥     */ '\u0326', /*     ̦     */
+  '\u0329', /*     ̩     */ '\u032a', /*     ̪     */ '\u032b', /*     ̫     */ '\u032c', /*     ̬     */
+  '\u032d', /*     ̭     */ '\u032e', /*     ̮     */ '\u032f', /*     ̯     */ '\u0330', /*     ̰     */
+  '\u0331', /*     ̱     */ '\u0332', /*     ̲     */ '\u0333', /*     ̳     */ '\u0339', /*     ̹     */
+  '\u033a', /*     ̺     */ '\u033b', /*     ̻     */ '\u033c', /*     ̼     */ '\u0345', /*     ͅ     */
+  '\u0347', /*     ͇     */ '\u0348', /*     ͈     */ '\u0349', /*     ͉     */ '\u034d', /*     ͍     */
+  '\u034e', /*     ͎     */ '\u0353', /*     ͓     */ '\u0354', /*     ͔     */ '\u0355', /*     ͕     */
+  '\u0356', /*     ͖     */ '\u0359', /*     ͙     */ '\u035a', /*     ͚     */ '\u0323' /*     ̣     */
+];
+
+//those always stay in the middle
+var zalgo_mid = [
+  '\u0315', /*     ̕     */ '\u031b', /*     ̛     */ '\u0340', /*     ̀     */ '\u0341', /*     ́     */
+  '\u0358', /*     ͘     */ '\u0321', /*     ̡     */ '\u0322', /*     ̢     */ '\u0327', /*     ̧     */
+  '\u0328', /*     ̨     */ '\u0334', /*     ̴     */ '\u0335', /*     ̵     */ '\u0336', /*     ̶     */
+  '\u034f', /*     ͏     */ '\u035c', /*     ͜     */ '\u035d', /*     ͝     */ '\u035e', /*     ͞     */
+  '\u035f', /*     ͟     */ '\u0360', /*     ͠     */ '\u0362', /*     ͢     */ '\u0338', /*     ̸     */
+  '\u0337', /*     ̷     */ '\u0361', /*     ͡     */ '\u0489' /*     ҉_     */
+];
+
+// rand funcs
+//---------------------------------------------------
+
+//gets an int between 0 and max
+function rand(max) {
+  return Math.floor(Math.random() * max);
+}
+
+//gets a random char from a zalgo char table
+function rand_zalgo(array) {
+  var ind = Math.floor(Math.random() * array.length);
+  return array[ind];
+}
+
+// utils funcs
+//---------------------------------------------------
+
+//hide show element
+function toggle(id) {
+  if (document.getElementById(id).style.display == "none")
+    document.getElementById(id).style.display = "block";
+  else
+    document.getElementById(id).style.display = "none";
+}
+
+//lookup char to know if its a zalgo char or not
+function is_zalgo_char(c) {
+  var i;
+  for (i = 0; i < zalgo_up.length; i++)
+    if (c == zalgo_up[i])
+      return true;
+  for (i = 0; i < zalgo_down.length; i++)
+    if (c == zalgo_down[i])
+      return true;
+  for (i = 0; i < zalgo_mid.length; i++)
+    if (c == zalgo_mid[i])
+      return true;
+  return false;
+}
+
+function draw_zalgo_table(elid) {
+  var container = document.getElementById(elid);
+  var html = '';
+
+  html += '<b>Chars going up:</b><br />\n';
+  html += '<table class="zalgo_ref_table">\n';
+  html += '<tr>\n';
+  for (var i = 0; i < zalgo_up.length; i++) {
+    if (!(i % 10))
+      html += '</tr><tr>';
+    html += '<td class="zalgo_td">' + zalgo_up[i] + '</td>\n';
+  }
+  html += '</tr>\n';
+  html += '</table>\n';
+
+  html += '<br /><b>Chars staying in the middle:</b><br />\n';
+  html += '<table class="zalgo_ref_table">\n';
+  html += '<tr>\n';
+  for (var i = 0; i < zalgo_mid.length; i++) {
+    if (!(i % 10))
+      html += '</tr><tr>';
+    html += '<td class="zalgo_td">' + zalgo_mid[i] + '</td>\n';
+  }
+  html += '</tr>\n';
+  html += '</table>\n';
+
+  html += '<br /><b>Chars going down:</b><br />\n';
+  html += '<table class="zalgo_ref_table">\n';
+  html += '<tr>\n';
+  for (var i = 0; i < zalgo_down.length; i++) {
+    if (!(i % 10))
+      html += '</tr><tr>';
+    html += '<td class="zalgo_td">' + zalgo_down[i] + '</td>\n';
+  }
+  html += '</tr>\n';
+  html += '</table>\n';
+
+  container.innerHTML = html;
+}
+
+// main shit
+//---------------------------------------------------
+function zalgo_textarea(id) {
+  var p = document.getElementById(id);
+
+  var txt = p.value;
+  var newtxt = '';
+
+  for (var i = 0; i < txt.length; i++) {
+    if (is_zalgo_char(txt.substr(i, 1)))
+      continue;
+
+    var num_up;
+    var num_mid;
+    var num_down;
+
+    //add the normal character
+    newtxt += txt.substr(i, 1);
+
+    //options
+    if (document.getElementById('zalgo_opt_1').checked) {
+      num_up = rand(12);
+      num_mid = rand(10);
+      num_down = rand(12);
+    } else if (document.getElementById('zalgo_opt_2').checked) {
+      num_up = rand(22);
+      num_mid = rand(20);
+      num_down = rand(22);
+    } else if (document.getElementById('zalgo_opt_3').checked) {
+      num_up = rand(32);
+      num_mid = rand(30);
+      num_down = rand(32);
+    } else if (document.getElementById('zalgo_opt_4').checked) {
+      num_up = rand(42);
+      num_mid = rand(40);
+      num_down = rand(42);
+    } else if (document.getElementById('zalgo_opt_5').checked) {
+      num_up = rand(52);
+      num_mid = rand(50);
+      num_down = rand(52);
+    } else if (document.getElementById('zalgo_opt_6').checked) {
+      num_up = rand(62);
+      num_mid = rand(60);
+      num_down = rand(62);
+    }  else if (document.getElementById('zalgo_opt_7').checked) {
+      num_up = rand(72);
+      num_mid = rand(70);
+      num_down = rand(72);
+    } else if (document.getElementById('zalgo_opt_8').checked) {
+      num_up = rand(82);
+      num_mid = rand(80);
+      num_down = rand(82);
+    } else if (document.getElementById('zalgo_opt_9').checked) {
+      num_up = rand(92);
+      num_mid = rand(90);
+      num_down = rand(92);
+    } else if (document.getElementById('zalgo_opt_10').checked) {
+      num_up = rand(102);
+      num_mid = rand(100);
+      num_down = rand(102);
+    } else if  (document.getElementById('zalgo_opt_mass').checked) {
+      num_up = rand(150);
+      num_mid = rand(150);
+      num_down = rand(150);
+    }
+
+    if (document.getElementById('zalgo_opt_up').checked)
+      for (var j = 0; j < num_up; j++)
+        newtxt += rand_zalgo(zalgo_up);
+    if (document.getElementById('zalgo_opt_mid').checked)
+      for (var j = 0; j < num_mid; j++)
+        newtxt += rand_zalgo(zalgo_mid);
+    if (document.getElementById('zalgo_opt_down').checked)
+      for (var j = 0; j < num_down; j++)
+        newtxt += rand_zalgo(zalgo_down);
+  }
+
+  //result is in nextxt, display that
+
+  //remove all children of lulz_container
+  var container = document.getElementById('lulz_container');
+  while (container.childNodes.length)
+    container.removeChild(container.childNodes[0]);
+
+  //build blocks for each line & create a <br />
+  var lines = newtxt.split("\n");
+  for (var i = 0; i < lines.length; i++) {
+    var n = document.createElement('text');
+    n.innerHTML = lines[i];
+    container.appendChild(n);
+    var nl = document.createElement('br');
+    container.appendChild(nl);
+  }
+
+  //done
+}
+    </script>
+</head>
+<body>
+    <h1>Zalgo Text Generator</h1>
+<p></p>
+<table id="zalgotable">
+  <tr>
+    <td id="lulz_container" style="BORDER-RIGHT: black 2px solid; PADDING-RIGHT: 50px; BORDER-TOP: black 2px solid; PADDING-LEFT: 50px; PADDING-BOTTOM: 50px; BORDER-LEFT: black 2px solid; PADDING-TOP: 50px; BORDER-BOTTOM: black 2px solid" width=550>
+      <p id="lulz"></p>
+    </td>
+
+    <td style="BORDER-RIGHT: black 2px solid; BORDER-TOP: black 2px solid; BORDER-LEFT: black 2px solid; BORDER-BOTTOM: black 2px solid" width=450>
+      <textarea id="zalgo_txt" style="FONT-FAMILY: Times New Roman" rows="13" cols="80">Text Here</textarea>
+
+      <form id="zalgo_form" action="">
+        <input id="zalgo_btn" onclick="zalgo_textarea('zalgo_txt');" type="button" value="Start">
+
+        <br />
+        <table>
+          <tr>
+            <td>
+              <input id="zalgo_opt_up" type="checkbox">[censored] up going up
+              <BR>
+              <input id="zalgo_opt_mid" type="checkbox">[censored] up the middle
+              <BR>
+              <input id="zalgo_opt_down" type="checkbox">[censored] up going down
+              <BR>
+            </td>
+            <td>
+              <span>Mess</span>
+              <br />
+              <input id="zalgo_opt_1" type="radio" name="optval" CHECKED>1
+              <BR>
+              <input id="zalgo_opt_2" type="radio" name="optval">2
+              <BR>
+              <input id="zalgo_opt_3" type="radio" name="optval">3
+              <BR>
+              <input id="zalgo_opt_4" type="radio" name="optval">4
+              <BR>
+              <input id="zalgo_opt_5" type="radio" name="optval">5
+              <BR>
+            </td>
+            <td>
+              <BR>
+              <input id="zalgo_opt_6" type="radio" name="optval">6
+              <BR>
+              <input id="zalgo_opt_7" type="radio" name="optval">7
+              <BR>
+              <input id="zalgo_opt_8" type="radio" name="optval">8
+              <BR>
+              <input id="zalgo_opt_9" type="radio" name="optval">9
+              <BR>
+              <input id="zalgo_opt_10" type="radio" name="optval">10
+              <BR>
+              <input id="zalgo_opt_mass" type="radio" name="optval">mass
+</body>
+</html>
+
+
+game ailen :
+
+ <html>
+<head>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+    #score {
+      font-family: Arial;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+    <h1>The game controls are the left and right arrow keys to move, and the spacebar to shoot. The goal is to kill as many aliens as possible before they reach the bottom of the screen or collide with you. and after you die reload the page</h1>
+  <div id="score">Score: 0</div>
+  <canvas id="game" width="800" height="600"></canvas>
+  <script>
+    // Get the canvas element and its context
+    var canvas = document.getElementById("game");
+    var ctx = canvas.getContext("2d");
+
+    // Define some constants
+    var FPS = 60; // Frames per second
+    var PLAYER_SPEED = 5; // Pixels per frame
+    var PLAYER_WIDTH = 50; // Pixels
+    var PLAYER_HEIGHT = 50; // Pixels
+    var PLAYER_COLOR = "blue"; // Fill color
+    var BULLET_SPEED = 10; // Pixels per frame
+    var BULLET_WIDTH = 5; // Pixels
+    var BULLET_HEIGHT = 10; // Pixels
+    var BULLET_COLOR = "white"; // Fill color
+    var ALIEN_SPEED = 2; // Pixels per frame
+    var ALIEN_WIDTH = 40; // Pixels
+    var ALIEN_HEIGHT = 40; // Pixels
+    var ALIEN_COLOR = "green"; // Fill color
+    var ALIEN_SPAWN_RATE = 0.01; // Probability per frame
+    var ALIEN_POINTS = 10; // Points per kill
+
+    // Define some variables
+    var player = {x: canvas.width / 2, y: canvas.height - PLAYER_HEIGHT}; // Player position
+    var bullets = []; // Array of bullet objects
+    var aliens = []; // Array of alien objects
+    var score = 0; // Current score
+    var keys = {}; // Object to store which keys are pressed
+
+    // Add event listeners for keydown and keyup events
+    document.addEventListener("keydown", function(e) {
+      keys[e.keyCode] = true;
+    });
+    document.addEventListener("keyup", function(e) {
+      keys[e.keyCode] = false;
+    });
+
+    // Define a function to update the game logic
+    function update() {
+      // Move the player left or right based on the arrow keys
+      if (keys[37]) { // Left arrow
+        player.x -= PLAYER_SPEED;
+      }
+      if (keys[39]) { // Right arrow
+        player.x += PLAYER_SPEED;
+      }
+      // Keep the player within the canvas bounds
+      if (player.x < 0) {
+        player.x = 0;
+      }
+      if (player.x > canvas.width - PLAYER_WIDTH) {
+        player.x = canvas.width - PLAYER_WIDTH;
+      }
+      // Shoot a bullet if the spacebar is pressed
+      if (keys[32]) { // Spacebar
+        // Create a new bullet object at the player's position
+        var bullet = {x: player.x + PLAYER_WIDTH / 2 - BULLET_WIDTH / 2, y: player.y};
+        // Add it to the bullets array
+        bullets.push(bullet);
+      }
+      // Move each bullet upwards
+      for (var i = 0; i < bullets.length; i++) {
+        bullets[i].y -= BULLET_SPEED;
+        // Remove the bullet if it goes off the canvas
+        if (bullets[i].y < -BULLET_HEIGHT) {
+          bullets.splice(i, 1);
+          i--;
+        }
+      }
+      // Spawn a new alien with a random x position and a fixed y position
+      if (Math.random() < ALIEN_SPAWN_RATE) {
+        // Create a new alien object with a random x position
+        var alien = {x: Math.random() * (canvas.width - ALIEN_WIDTH), y: -ALIEN_HEIGHT};
+        // Add it to the aliens array
+        aliens.push(alien);
+      }
+      // Move each alien downwards
+      for (var i = 0; i < aliens.length; i++) {
+        aliens[i].y += ALIEN_SPEED;
+        // Remove the alien if it goes off the canvas
+        if (aliens[i].y > canvas.height) {
+          aliens.splice(i, 1);
+          i--;
+        }
+      }
+      // Check for collisions between bullets and aliens
+      for (var i = 0; i < bullets.length; i++) {
+        for (var j = 0; j < aliens.length; j++) {
+          // Calculate the distance between the bullet and the alien
+          var dx = bullets[i].x - aliens[j].x;
+          var dy = bullets[i].y - aliens[j].y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          // If the distance is less than the sum of their half-widths, they are overlapping
+          if (dist < (BULLET_WIDTH + ALIEN_WIDTH) / 2) {
+            // Remove the bullet and the alien from their arrays
+            bullets.splice(i, 1);
+            aliens.splice(j, 1);
+            i--;
+            j--;
+            // Increase the score by the alien's points
+            score += ALIEN_POINTS;
+            // Break out of the inner loop
+            break;
+          }
+        }
+      }
+      // Check for collisions between the player and aliens
+      for (var i = 0; i < aliens.length; i++) {
+        // Calculate the distance between the player and the alien
+        var dx = player.x - aliens[i].x;
+        var dy = player.y - aliens[i].y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        // If the distance is less than the sum of their half-widths, they are overlapping
+        if (dist < (PLAYER_WIDTH + ALIEN_WIDTH) / 2) {
+          // End the game by stopping the update loop
+          clearInterval(interval);
+          // Display a game over message
+          alert("Game Over! Your score is " + score);
+        }
+      }
+    }
+
+    // Define a function to render the game graphics
+    function render() {
+      // Clear the canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      // Draw the player as a blue rectangle
+      ctx.fillStyle = PLAYER_COLOR;
+      ctx.fillRect(player.x, player.y, PLAYER_WIDTH, PLAYER_HEIGHT);
+      // Draw each bullet as a white rectangle
+      ctx.fillStyle = BULLET_COLOR;
+      for (var i = 0; i < bullets.length; i++) {
+        ctx.fillRect(bullets[i].x, bullets[i].y, BULLET_WIDTH, BULLET_HEIGHT);
+      }
+      // Draw each alien as a green rectangle
+      ctx.fillStyle = ALIEN_COLOR;
+      for (var i = 0; i < aliens.length; i++) {
+        ctx.fillRect(aliens[i].x, aliens[i].y, ALIEN_WIDTH, ALIEN_HEIGHT);
+      }
+      // Update the score display
+      document.getElementById("score").innerHTML = "Score: " + score;
+    }
+
+    // Start the update loop
+    var interval = setInterval(function() {
+      update();
+      render();
+    }, 1000 / FPS);
+  </script>
+</body>
+</html>
+
+game obg :
+
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePiece;
+var myObstacles = [];
+
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;    
+    this.x = x;
+    this.y = y;    
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+    this.newPos = function() {
+        this.x += this.speedX;
+        this.y += this.speedY;        
+    }    
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+    var x, height, gap, minHeight, maxHeight, minGap, maxGap;
+    for (i = 0; i < myObstacles.length; i += 1) {
+        if (myGamePiece.crashWith(myObstacles[i])) {
+            myGameArea.stop();
+            return;
+        } 
+    }
+    myGameArea.clear();
+    myGameArea.frameNo += 1;
+    if (myGameArea.frameNo == 1 || everyinterval(150)) {
+        x = myGameArea.canvas.width;
+        minHeight = 20;
+        maxHeight = 200;
+        height = Math.floor(Math.random()*(maxHeight-minHeight+1)+minHeight);
+        minGap = 50;
+        maxGap = 200;
+        gap = Math.floor(Math.random()*(maxGap-minGap+1)+minGap);
+        myObstacles.push(new component(10, height, "green", x, 0));
+        myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
+    }
+    for (i = 0; i < myObstacles.length; i += 1) {
+        myObstacles[i].x += -1;
+        myObstacles[i].update();
+    }
+    myGamePiece.newPos();    
+    myGamePiece.update();
+}
+
+function everyinterval(n) {
+    if ((myGameArea.frameNo / n) % 1 == 0) {return true;}
+    return false;
+}
+
+function moveup() {
+    myGamePiece.speedY = -1; 
+}
+
+function movedown() {
+    myGamePiece.speedY = 1; 
+}
+
+function moveleft() {
+    myGamePiece.speedX = -1; 
+}
+
+function moveright() {
+    myGamePiece.speedX = 1; 
+}
+
+function clearmove() {
+    myGamePiece.speedX = 0; 
+    myGamePiece.speedY = 0; 
+}
+</script>
+<h1>after you die reload the page</h1>
+<div style="text-align:center;width:480px;">
+  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+</div>
+</body>
+</html>
+ 
+game :
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game</title>
+<style>
+    #gameFrame {
+
+background-color: black;
+height: 600px;
+width: 800px;
+margin: auto;
+position: relative;
+overflow: hidden;
+}
+
+#healthBar {
+position: absolute;
+top: 0;
+left: 0;
+height: 20px;
+width: 100%;
+background-color: coral;
+transition: width .5s;
+}
+
+.enemy {
+width: 150px;
+height: 400px;
+position: absolute;
+background-color: beige;
+bottom: -400px;
+transition: all .5s;
+}
+
+.enemy.showing {
+bottom: 0;
+}
+
+.enemy.shooting {
+background-color: red;
+}
+
+
+#enemy1 { left: 5px; }
+#enemy2 { left: 165px; }
+#enemy3 { left: 325px; }
+#enemy4 { left: 485px; }
+#enemy5 { left: 645px; }
+
+
+.enemy.dead {
+background-color: gray;
+height: 50px;
+}
+</style>
+<script>
+    var healthPoints = 100;
+
+function updateHealthPoints(points) {
+
+	healthPoints = points;
+	var healthBar = document.querySelector("#healthBar");
+	healthBar.style.width = points + "%";
+
+	if(healthPoints < 1) {
+		alert("Game over!");
+		window.location.reload();
+	}
+
+}
+
+
+function livingEnemies() {
+	return document.querySelectorAll(".enemy:not(.dead)");
+}
+
+
+function iShoot(enemy) {
+	enemy.classList.add("dead");
+
+	if(!livingEnemies().length) {
+		alert("You win!");
+		window.location.reload();
+	}
+
+}
+
+
+function enemyAttacksMe(enemy) {
+
+	if(healthPoints > 0) {
+
+		enemy.classList.add("showing");
+
+		setTimeout(()=> {
+			enemyShootsMe(enemy);
+		}, 1000);
+
+		setTimeout(()=> {
+			enemy.classList.remove("showing");
+		}, 3000);
+		
+	}
+
+
+}
+
+
+function enemyShootsMe(enemy) {
+
+	if(!enemy.classList.contains("dead")) {
+
+		enemy.classList.add("shooting");
+		updateHealthPoints(healthPoints - 20);
+
+		setTimeout(()=> {
+			enemy.classList.remove("shooting");
+		}, 200);
+
+	}
+
+}
+
+
+function randomEnemyAttacks() {
+
+	var randomEnemyNo = Math.random() * livingEnemies().length;
+	randomEnemyNo = Math.floor(randomEnemyNo);
+	var enemy = livingEnemies()[randomEnemyNo];
+
+	var randomDelay = Math.random() * 2000 + 1000;
+
+	setTimeout( ()=> {
+		enemyAttacksMe(enemy);
+		randomEnemyAttacks();
+	}, randomDelay);
+
+}
+</script>
+</head>
+<body>
+    <div id="gameFrame">
+
+        <div id="healthBar"></div>
+      
+        <div class="enemy" id="enemy1" onclick="iShoot(this)"></div>
+        <div class="enemy" id="enemy2" onclick="iShoot(this)"></div>
+        <div class="enemy" id="enemy3" onclick="iShoot(this)"></div>
+        <div class="enemy" id="enemy4" onclick="iShoot(this)"></div>
+        <div class="enemy" id="enemy5" onclick="iShoot(this)"></div>
+      
+      </div>
+      
+      <p style="text-align: center;">
+        <button onclick="randomEnemyAttacks()">NEW GAME</button>
+      </p>	
+</body>
+</html>
+
+hhtml :
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"> <!-- Added meta tag for character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A page to learn HTML and CSS with online resources and tools."> <!-- Added meta tag for description -->
+  <title>Learn HTML</title>
+  <!-- Added internal CSS for styling -->
+  <style>
+    /* Use a custom font from Google Fonts */
+    @import url('https://fonts.googleapis.com/css?family=Roboto');
+
+    /* Use a light gray background for the body */
+    body {
+      background-color: #f0f0f0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Use a dark blue color for the headings */
+    h1, h2 {
+      color: #003366;
+    }
+
+    /* Use a lighter blue color for the links */
+    a {
+      color: #0099cc;
+      text-decoration: none;
+    }
+
+    /* Use a hover effect for the links */
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Use a white background and a box shadow for the main content */
+    main {
+      background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    /* Use a horizontal list for the navigation */
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    /* Use a fixed position and a gray background for the Google Translate widget */
+    aside {
+      background-color: #e0e0e0;
+      bottom: 0;
+      position: fixed;
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- This is the main content of the page -->
+  <main>
+    <!-- This is the header section of the page -->
+    <header>
+      <h1>Learn HTML</h1>
+      <p>To learn HTML, you need to know something about HTML. Here is a full course from BroCode and bonus is there is also CSS.</p>
+      <a href="https://youtu.be/HGTJBPNC-Gw?si=VqjXbR9m6pcpYkuY">HTML and CSS course here</a>
+    </header>
+    <!-- This is the navigation section of the page -->
+    <nav>
+      <h2>Resources and Tools</h2>
+      <ul>
+        <li><a href="https://www.w3schools.com/">W3Schools</a></li>
+        <li><a href="https://code.visualstudio.com/download">VSCode (download)</a></li>
+        <li><a href="https://vscode.dev">VSCode (web version)</a></li>
+        <li><a href="/">My website</a></li>
+      </ul>
+    </nav>
+  </main>
+  <!-- This is the secondary content of the page -->
+  <aside>
+    <!-- This is the Google Translate widget -->
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+      }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </aside>
+</body>
+</html>
